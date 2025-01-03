@@ -1,35 +1,34 @@
-void printResults(const char* computerChoice, const char* humanChoice)
-{
-    //strcmp() is used for string comparisons
-    if (strcmp(computerChoice, humanChoice) == 0)
+void determineWinner(char playerChoice, char computerChoice) {
+    if (playerChoice == computerChoice)
     {
-        printf("It's a draw");
+        printf("It's a tie! Both chose %c.\n", playerChoice);
     }
-    else if  ((strcmp(humanChoice, "stone") == 0 && strcmp(computerChoice, "scissors") == 0) ||
-             (strcmp(humanChoice, "paper") == 0 && strcmp(computerChoice, "stone") == 0) ||
-             (strcmp(humanChoice, "scissors") == 0 && strcmp(computerChoice, "paper") == 0))
+    else if ((playerChoice == 'S' && computerChoice == 'K') ||
+               (playerChoice == 'K' && computerChoice == 'P') ||
+               (playerChoice == 'P' && computerChoice == 'S'))
     {
-        printf("You win\n");
+        printf("You win! %c beats %c.\n", playerChoice, computerChoice);
     }
     else
     {
-        printf("The computer has won\n");
+        printf("Computer wins! %c beats %c.\n", computerChoice, playerChoice);
     }
 }
 
 int main()
 {
-    srand(time(NULL));
-    const char* computerChoice = getComputerChoice();
-    const char* humanChoice = getHumanChoice();
+    char playerChoice;
+    char computerChoice;
 
-    while(strcmp(humanChoice, "invalid") == 0)
-    {
-        printf("Invalid choice. Please enter a valid option.\n");
-        humanChoice = getHumanChoice();
-    }
+    srand(time(0));
 
-    printResults(computerChoice, humanChoice);
+    computerChoice = getComputerChoice();
+    playerChoice = getPlayerChoice();
+
+    printf("You chose: %c\n", playerChoice);
+    printf("Computer chose: %c\n", computerChoice);
+
+    determineWinner(playerChoice, computerChoice);
 
     return 0;
 }
