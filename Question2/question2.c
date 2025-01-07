@@ -22,8 +22,8 @@ int main()
 
     srand(time(0));
 
-    computerChoice = getComputerChoice();
-    playerChoice = getPlayerChoice();
+    computerChoice = get_computer_choice();
+    playerChoice = get_player_choice();
 
     printf("You chose: %c\n", playerChoice);
     printf("Computer chose: %c\n", computerChoice);
