@@ -37,7 +37,7 @@ char get_player_choice()
         }
         else
         {
-            print("invalid input.Please enter S,K,OR P.\n");
+            printf("invalid input.Please enter S,K,OR P.\n");
             continue;
         }
     }
